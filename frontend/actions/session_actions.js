@@ -5,30 +5,28 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
-
 export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 
-export const requestLogin = (creds) => ({
+export const requestLogin = creds => ({
   type: LOGIN_REQUEST,
   creds
 })
 
-export const receiveLogin = (user) => ({
+export const receiveLogin = user => ({
   type: LOGIN_SUCCESS,
   user
 })
 
-export const loginError = (message) => ({
+export const loginError = message => ({
   type: LOGIN_FAILURE,
   message
 })
 
-export const loginUser = (creds) => {
-  return dispatch => {
-    dispatch(requestLogin(creds));
+export const loginUser = creds => dispatch => {
+  dispatch(requestLogin(creds));
 
-    return axios.post('http://localhost:3000/api/sessions', { user: creds })
+  return axios.post('http://localhost:3000/api/sessions', { user: creds })
     .then((response) => {
       const user = response.data.user;
 
@@ -44,26 +42,19 @@ export const loginUser = (creds) => {
     .catch((error) => {
       console.log(error);
     })
-  }
 }
 
 export const requestLogout = () => ({
-  type: LOGOUT_REQUEST,
-  isFetching: true,
-  isAuthenticated: true
+  type: LOGOUT_REQUEST
 })
 
 export const receiveLogout = () => ({
-  type: LOGOUT_SUCCESS,
-  isFetching: false,
-  isAuthenticated: false
+  type: LOGOUT_SUCCESS
 })
 
-export const logoutUser = () => {
-  return dispatch => {
-    dispatch(requestLogout());
-    localStorage.removeItem('client');
-    dispatch(receiveLogout())
-    dispatch(push('/'));
-  }
+export const logoutUser = () => dispatch => {
+  dispatch(requestLogout());
+  localStorage.removeItem('client');
+  dispatch(receiveLogout())
+  dispatch(push('/'));
 }

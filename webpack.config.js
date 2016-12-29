@@ -15,11 +15,12 @@ module.exports = {
         loader: 'babel',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react', 'stage-0']
         }
       }
     ]
   },
+  devtool: 'source-maps',
   resolve: {
     extensions: ['', '.js', '.jsx']
   }

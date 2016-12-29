@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-// import { loginUser } from '../actions/sessions_actions';
 import Navbar from './Sessions/Navbar';
 
 class App extends Component {

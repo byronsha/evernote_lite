@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Login from './Login';
 import Logout from './Logout';
-import { loginUser, logoutUser } from '../../actions/sessions_actions';
+import { loginUser, logoutUser } from '../../actions/session_actions';
 
 class Navbar extends Component {
   render() {

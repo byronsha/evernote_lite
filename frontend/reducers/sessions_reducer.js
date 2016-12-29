@@ -1,11 +1,10 @@
-import { combineReducers } from 'redux';
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
   LOGOUT_REQUEST,
   LOGOUT_SUCCESS
-} from '../actions/sessions_actions';
+} from '../actions/session_actions';
 
 const sessions = (state = {
   isFetching: false,
@@ -15,33 +14,38 @@ const sessions = (state = {
 }, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isFetching: true,
-        isAuthenticated: false,
-        user: action.creds
-      })
+        isAuthenticated: false
+      }
     case LOGIN_SUCCESS:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isFetching: false,
         isAuthenticated: true,
-        errorMessage: ''
-      })
+        user: action.user
+      }
     case LOGIN_FAILURE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isFetching: false,
         isAuthenticated: false,
         errorMessage: action.message
-      })
+      }
     case LOGOUT_REQUEST:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         isFetching: true,
         isAuthenticated: true
-      })
+      }
     case LOGOUT_SUCCESS:
-      return Object.assign({}, state, {
+      return {
+        state,
         isFetching: false,
-        isAuthenticated: false
-      })
+        isAuthenticated: false,
+        user: null
+      }
     default:
       return state
   }
