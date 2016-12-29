@@ -31,8 +31,8 @@ export const loginUser = creds => dispatch => {
       const user = response.data.user;
 
       if (user) {
-        localStorage.setItem('client', user.username);
-        dispatch(receiveLogin(user.username));
+        localStorage.setItem('client', JSON.stringify(user));
+        dispatch(receiveLogin(user));
         dispatch(push('/dashboard'));
       } else {
         const message = response.data.errors[0];

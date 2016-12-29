@@ -2,12 +2,14 @@ import {
   REQUEST_NOTEBOOKS,
   RECEIVE_NOTEBOOKS,
   CREATE_NOTEBOOK_INITIATED,
-  NOTEBOOK_CREATED
+  NOTEBOOK_CREATED,
+  DELETE_NOTEBOOK_INITIATED,
+  NOTEBOOK_DELETED
 } from '../actions/notebook_actions';
 
 const notebooks = (state = {
-  isFetching: false,
-  items: []
+  notebooks: [],
+  isFetching: false
 }, action) => {
   switch (action.type) {
     case REQUEST_NOTEBOOKS:
@@ -17,8 +19,8 @@ const notebooks = (state = {
       }
     case RECEIVE_NOTEBOOKS:
       return {
-        isFetching: false,
-        items: action.notebooks
+        notebooks: action.notebooks,
+        isFetching: false
       }
     case CREATE_NOTEBOOK_INITIATED:
       return {
@@ -27,8 +29,20 @@ const notebooks = (state = {
       }
     case NOTEBOOK_CREATED:
       return {
-        isFetching: false,
-        items: state.items.concat(action.notebook)
+        notebooks: state.notebooks.concat(action.notebook),
+        isFetching: false
+      }
+    case DELETE_NOTEBOOK_INITIATED:
+      return {
+        ...state,
+        isFetching: true
+      }
+    case NOTEBOOK_DELETED:
+      return {
+        notebooks: state.notebooks.filter(notebook =>
+          notebook.id !== action.notebookId
+        ),
+        isFetching: false
       }
     default:
       return state

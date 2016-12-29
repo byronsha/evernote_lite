@@ -9,7 +9,7 @@ import {
 const sessions = (state = {
   isFetching: false,
   isAuthenticated: localStorage.getItem('client') ? true : false,
-  user: null,
+  user: JSON.parse(localStorage.getItem('client')),
   errorMessage: ''
 }, action) => {
   switch (action.type) {
