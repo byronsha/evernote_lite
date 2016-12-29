@@ -10,9 +10,10 @@ class Api::SessionsController < ApplicationController
     else
       render json: { errors: ["Invalid username or password"] }
     end
+  end
 
-    def destroy
-      logout!
-      render json: {}
-    end
+  def destroy
+    logout!
+    render json: {}
+  end
 end

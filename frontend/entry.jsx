@@ -1,26 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import { syncHistoryWithStore } from 'react-router-redux';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { syncHistoryWithStore, push } from 'react-router-redux';
 
-import Store from './store/store';
+import store from './store/store';
 import App from './components/App';
 import HomePage from './components/HomePage/HomePage';
 import Dashboard from './components/Dashboard/Dashboard';
 
-const history = syncHistoryWithStore(browserHistory, Store);
+const history = syncHistoryWithStore(browserHistory, store);
 
 const preventIfLoggedIn = () => {
-
+  if (store.getState().sessions.isAuthenticated) {
+    store.dispatch(push('/dashboard'));
+  }
 }
 
 const requireLogin = () => {
-
+  if (!store.getState().sessions.isAuthenticated) {
+    store.dispatch(push('/'));
+  }
 }
 
 const Root = () => (
-  <Provider store={Store}>
+  <Provider store={store}>
     <Router history={history}>
       <Route name='app' path='/' component={App}>
         <IndexRoute component={HomePage} onEnter={preventIfLoggedIn} />

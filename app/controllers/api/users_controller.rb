@@ -1,4 +1,8 @@
 class Api::UsersController < ApplicationController
+  before_action :prevent_if_logged_in, only: :create
+  before_action :prevent_if_username_exists, only: :create
+  before_action :require_login, only: :update
+
   def create
     @user = User.new(user_params)
 
@@ -34,6 +38,13 @@ class Api::UsersController < ApplicationController
     permitted = [:username, :email, :name, :password]
 
     params.require(:user).permit(permitted)
+  end
+
+  def prevent_if_username_exists
+    if user_exists?
+      render json: { errors: ["Username is already taken"]}
+      false
+    end
   end
 
   def user_exists?
