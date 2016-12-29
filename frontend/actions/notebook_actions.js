@@ -12,7 +12,7 @@ export const requestNotebooks = userId => ({
 })
 
 export const receiveNotebooks = notebooks => ({
-  type: RECEIVE_NOTEBOOKS
+  type: RECEIVE_NOTEBOOKS,
   notebooks
 })
 

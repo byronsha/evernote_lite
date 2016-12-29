@@ -8,10 +8,28 @@ import {
 const notebooks = (state = {
   isFetching: false,
   items: []
-}, action) = {
+}, action) => {
   switch (action.type) {
     case REQUEST_NOTEBOOKS:
-      // return
+      return {
+        ...state,
+        isFetching: true
+      }
+    case RECEIVE_NOTEBOOKS:
+      return {
+        isFetching: false,
+        items: action.notebooks
+      }
+    case CREATE_NOTEBOOK_INITIATED:
+      return {
+        ...state,
+        isFetching: true
+      }
+    case NOTEBOOK_CREATED:
+      return {
+        isFetching: false,
+        items: state.items.concat(action.notebook)
+      }
     default:
       return state
   }

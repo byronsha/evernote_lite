@@ -4,22 +4,24 @@ import { routerMiddleware, routerReducer } from 'react-router-redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 
-import SessionsReducer from '../reducers/sessions_reducer';
+import sessions from '../reducers/sessions_reducer';
+import notebooks from '../reducers/notebooks_reducer';
 
-const RootReducer = combineReducers({
-  sessions: SessionsReducer,
+const rootReducer = combineReducers({
+  sessions,
+  notebooks,
   routing: routerReducer
 });
 
-const MasterMiddleware = applyMiddleware(
+const masterMiddleware = applyMiddleware(
   thunkMiddleware,
   createLogger(),
   routerMiddleware(browserHistory)
 );
 
 const store = createStore(
-  RootReducer,
-  MasterMiddleware
+  rootReducer,
+  masterMiddleware
 );
 
 export default store;

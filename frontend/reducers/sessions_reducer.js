@@ -21,16 +21,16 @@ const sessions = (state = {
       }
     case LOGIN_SUCCESS:
       return {
-        ...state,
         isFetching: false,
         isAuthenticated: true,
-        user: action.user
+        user: action.user,
+        errorMessage: ''
       }
     case LOGIN_FAILURE:
       return {
-        ...state,
         isFetching: false,
         isAuthenticated: false,
+        user: null,
         errorMessage: action.message
       }
     case LOGOUT_REQUEST:
@@ -41,10 +41,10 @@ const sessions = (state = {
       }
     case LOGOUT_SUCCESS:
       return {
-        state,
         isFetching: false,
         isAuthenticated: false,
-        user: null
+        user: null,
+        errorMessage: ''
       }
     default:
       return state
