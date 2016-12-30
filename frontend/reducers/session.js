@@ -2,11 +2,14 @@ import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
+  SIGNUP_REQUEST,
+  SIGNUP_SUCCESS,
+  SIGNUP_FAILURE,
   LOGOUT_REQUEST,
   LOGOUT_SUCCESS
-} from '../actions/session_actions';
+} from '../actions/session';
 
-const sessions = (state = {
+const session = (state = {
   isFetching: false,
   isAuthenticated: localStorage.getItem('client') ? true : false,
   user: JSON.parse(localStorage.getItem('client')),
@@ -46,9 +49,29 @@ const sessions = (state = {
         user: null,
         errorMessage: ''
       }
+    case SIGNUP_REQUEST:
+      return {
+        ...state,
+        isFetching: true,
+        isAuthenticated: false
+      }
+    case SIGNUP_SUCCESS:
+      return {
+        isFetching: false,
+        isAuthenticated: true,
+        user: action.user,
+        errorMessage: ''
+      }
+    case SIGNUP_FAILURE:
+      return {
+        isFetching: false,
+        isAuthenticated: false,
+        user: null,
+        errorMessage: action.message
+      }
     default:
       return state
   }
 }
 
-export default sessions;
+export default session;

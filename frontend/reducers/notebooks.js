@@ -5,7 +5,7 @@ import {
   NOTEBOOK_CREATED,
   DELETE_NOTEBOOK_INITIATED,
   NOTEBOOK_DELETED
-} from '../actions/notebook_actions';
+} from '../actions/notebooks';
 
 const notebooks = (state = {
   notebooks: [],

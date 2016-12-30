@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { createNotebook } from '../../actions/notebook_actions'
+import { createNotebook } from '../../actions/notebooks'
 
 let AddNotebookContainer = ({ dispatch }) => {
   let title

@@ -4,7 +4,7 @@ import Navbar from './Navbar/Navbar';
 
 class App extends Component {
   render() {
-    const { dispatch, isAuthenticated, errorMessage } = this.props;
+    const { dispatch, isAuthenticated, errorMessage, user } = this.props;
 
     return (
       <div>
@@ -12,6 +12,7 @@ class App extends Component {
           isAuthenticated={isAuthenticated}
           errorMessage={errorMessage}
           dispatch={dispatch}
+          user={user}
         />
 
         <div className='container'>
@@ -23,8 +24,9 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    isAuthenticated: state.sessions.isAuthenticated,
-    errorMessage: state.sessions.errorMessage
+  isAuthenticated: state.session.isAuthenticated,
+  errorMessage: state.session.errorMessage,
+  user: state.session.user
 });
 
 export default connect(mapStateToProps)(App);

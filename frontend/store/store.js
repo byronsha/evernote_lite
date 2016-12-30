@@ -4,11 +4,11 @@ import { routerMiddleware, routerReducer } from 'react-router-redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 
-import sessions from '../reducers/sessions_reducer';
-import notebooks from '../reducers/notebooks_reducer';
+import session from '../reducers/session';
+import notebooks from '../reducers/notebooks';
 
 const rootReducer = combineReducers({
-  sessions,
+  session,
   notebooks,
   routing: routerReducer
 });

@@ -21,7 +21,7 @@ export const receiveNotebooks = notebooks => ({
 export const fetchNotebooks = userId => dispatch => {
   dispatch(requestNotebooks(userId))
 
-  return axios.get(`http://localhost:3000/api/notebooks`, { user_id: userId })
+  return axios.get(`http://localhost:3000/api/notebooks?user_id=${userId}`)
     .then((response) => {
       const notebooks = response.data.notebooks
       dispatch(receiveNotebooks(notebooks))
