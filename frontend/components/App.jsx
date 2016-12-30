@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Navbar from './Sessions/Navbar';
+import Navbar from './Navbar/Navbar';
 
 class App extends Component {
   render() {

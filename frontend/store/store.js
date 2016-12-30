@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
 
 const masterMiddleware = applyMiddleware(
   thunkMiddleware,
-  createLogger(),
+  createLogger({ collapsed: true }),
   routerMiddleware(browserHistory)
 );
 

@@ -10,20 +10,16 @@ let AddNotebookContainer = ({ dispatch }) => {
     <div className='add-notebook-form'>
       <form onSubmit={e => {
         e.preventDefault()
-        if (!title.value.trim()) {
-          return
-        }
+        if (!title.value.trim()) { return }
+
         dispatch(createNotebook({ title: title.value, description: description.value }))
         title.value = ''
         description.value = ''
       }}>
-        <input ref={node => {
-          title = node
-        }} />
-        <input ref={node => {
-          description = node
-        }} />
-        <button type='submit'>
+        <input className='form-control' ref={node => { title = node }} />
+        <input className='form-control' ref={node => { description = node }} />
+
+        <button type='submit' className='btn btn-primary'>
           Add Notebook
         </button>
       </form>
