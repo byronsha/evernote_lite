@@ -16,10 +16,10 @@ let AddNotebookContainer = ({ dispatch }) => {
         title.value = ''
         description.value = ''
       }}>
-        <input className='form-control' ref={node => { title = node }} />
-        <input className='form-control' ref={node => { description = node }} />
+        <input ref={node => { title = node }} />
+        <input ref={node => { description = node }} />
 
-        <button type='submit' className='btn btn-primary'>
+        <button type='submit'>
           Add Notebook
         </button>
       </form>

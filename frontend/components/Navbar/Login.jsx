@@ -6,8 +6,8 @@ class Login extends Component {
 
     return (
       <div>
-        <input type='text' ref='username' className="form-control" placeholder='Username'/>
-        <input type='password' ref='password' className="form-control" placeholder='Password'/>
+        <input type='text' ref='username' placeholder='Username'/>
+        <input type='password' ref='password' placeholder='Password'/>
         <button onClick={(event) => this.handleClick(event)} className="btn btn-primary">
           Login
         </button>

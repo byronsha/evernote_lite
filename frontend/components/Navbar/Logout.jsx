@@ -7,7 +7,7 @@ class Logout extends Component {
     return (
       <div>
         {user.name}
-        <button onClick={() => onLogoutClick()} className="btn btn-primary">
+        <button onClick={() => onLogoutClick()}>
           Logout
         </button>
       </div>
