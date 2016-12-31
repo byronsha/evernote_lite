@@ -11,57 +11,53 @@ class Login extends Component {
 
     return (
       <div className='login-container'>
-        <div className='card-panel'>
-          <form onSubmit={e => {
-            e.preventDefault()
-            loginUser(({ username: username.value, password: password.value }))
-            username.value = ''
-            password.value = ''
-          }}>
+        <div className='ui card fluid'>
+          <div className='content'>
+            <h2>Log in</h2>
+          </div>
 
-            <div className='row'>
-              <div className='input-field col s12'>
+          <div className='content'>
+            <form
+              className='ui big form error'
+              onSubmit={e => {
+                e.preventDefault()
+                loginUser(({
+                  username: username.value,
+                  password: password.value
+                }))
+                username.value = ''
+                password.value = ''
+            }}>
+              <div className='field'>
+                <label>Username</label>
                 <input
                   type='text'
-                  id='username'
-                  className="validate"
-                  ref={node => { username = node }}
-                  />
-                <label htmlFor="username">Username</label>
+                  ref={input => { username = input }}
+                />
               </div>
-            </div>
-
-            <div className='row'>
-              <div className='input-field col s12'>
+              <div className='field'>
+                <label>Password</label>
                 <input
                   type='password'
-                  id='username'
-                  className="validate"
-                  ref={node => { password = node }}
-                  />
-                <label htmlFor="password">Password</label>
+                  ref={input => { password = input }}
+                />
               </div>
-            </div>
-
-            <div className='row'>
-              <div className='input-field col s12'>
-                <button type='submit' className='btn blue col s12'>
+              <div className='field'>
+                <button type='submit' className='ui big button fluid green'>
                   Log in
                 </button>
               </div>
-            </div>
 
-            {errorMessage &&
-              <div className='row'>
-                <div className='col s12'>
-                  <p className='red-text'>{errorMessage}</p>
-                </div>
-              </div>
-            }
-          </form>
+              {errorMessage &&
+                <div className='ui error message'><p>{errorMessage}</p></div>
+              }
+            </form>
+          </div>
         </div>
 
-        <Link to='/signup'>Don't have an account?</Link>
+        <div className='align-center'>
+          <Link to='/signup'>Don't have an account? Sign up.</Link>
+        </div>
       </div>
     )
   }

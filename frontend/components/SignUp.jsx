@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { signUpUser } from '../actions/session'
 
@@ -11,52 +12,72 @@ class SignUp extends Component {
     let password
 
     return (
-      <div className='container'>        
-        <form onSubmit={e => {
-            e.preventDefault()
-            signUpUser(({
-              username: username.value,
-              email: email.value,
-              name: name.value,
-              password: password.value
-            }))
-            username.value = ''
-            email.value = ''
-            name.value = ''
-            password.value = ''
-          }}>
-          <input
-            type='text'
-            className="form-control"
-            placeholder='username'
-            ref={node => { username = node }}
-            />
-          <input
-            type='text'
-            className="form-control"
-            placeholder='email'
-            ref={node => { email = node }}
-            />
-          <input
-            type='text'
-            className="form-control"
-            placeholder='name'
-            ref={node => { name = node }}
-            />
-          <input
-            type='password'
-            className="form-control"
-            placeholder='password'
-            ref={node => { password = node }}
-            />
-          <button type='submit' className='btn btn-primary'>
-            Sign Up
-          </button>
+      <div className='login-container'>
+        <div className='ui card fluid'>
+          <div className='content'>
+            <h2>Sign up</h2>
+          </div>
 
-          {errorMessage &&
-            <p>{errorMessage}</p>
-          }
-        </form>
+          <div className='content'>
+            <form
+              className='ui big form error'
+              onSubmit={e => {
+                e.preventDefault()
+                signUpUser(({
+                  username: username.value,
+                  email: email.value,
+                  name: name.value,
+                  password: password.value
+                }))
+                username.value = ''
+                email.value = ''
+                name.value = ''
+                password.value = ''
+            }}>
+              <div className='field'>
+                <label>Username</label>
+                <input
+                  type='text'
+                  ref={input => { username = input }}
+                />
+              </div>
+              <div className='field'>
+                <label>Email</label>
+                <input
+                  type='text'
+                  ref={input => { email = input }}
+                />
+              </div>
+              <div className='field'>
+                <label>Name</label>
+                <input
+                  type='text'
+                  ref={input => { name = input }}
+                  />
+              </div>
+              <div className='field'>
+                <label>Password</label>
+                <input
+                  type='password'
+                  ref={input => { password = input }}
+                />
+              </div>
+              <div className='field'>
+                <button type='submit' className='ui big button fluid green'>
+                  Sign up
+                </button>
+              </div>
+
+              {errorMessage &&
+                <div className='ui error message'><p>{errorMessage}</p></div>
+              }
+            </form>
+          </div>
+        </div>
+
+        <div className='align-center'>
+          <Link to='/login'>Already have an account? Log in.</Link>
+        </div>
       </div>
     )
   }

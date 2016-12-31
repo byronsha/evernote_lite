@@ -1,21 +1,26 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Navbar from './Navbar/Navbar';
+import SidebarContainer from './Sidebar/SidebarContainer';
 
 class App extends Component {
   render() {
-    const { dispatch, isAuthenticated, errorMessage, user } = this.props;
+    const sidebarStyle = {
+      position: 'absolute',
+      width: '100px'
+    }
+
+    const contentStyle = {
+      position: 'absolute',
+      marginLeft: '100px'
+    }
 
     return (
       <div>
-        <Navbar
-          isAuthenticated={isAuthenticated}
-          errorMessage={errorMessage}
-          dispatch={dispatch}
-          user={user}
-        />
+        <div style={sidebarStyle}>
+          <SidebarContainer />
+        </div>
 
-        <div className='container'>
+        <div style={contentStyle}>
           {this.props.children}
         </div>
       </div>
@@ -23,10 +28,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.session.isAuthenticated,
-  errorMessage: state.session.errorMessage,
-  user: state.session.user
-});
-
-export default connect(mapStateToProps)(App);
+export default App
