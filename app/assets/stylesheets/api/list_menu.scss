@@ -1,0 +1,15 @@
+.list-menu {
+  position: absolute;
+  width: 350px;
+  height: 100vh;
+  margin-left: 75px;
+
+  .notebook-header {
+    padding: 25px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #eee;
+  }
+  .notebook-header h2 {
+    font-weight: 400;
+  }
+}

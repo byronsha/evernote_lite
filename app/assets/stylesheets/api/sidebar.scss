@@ -1,0 +1,27 @@
+.sidebar {
+  position: absolute;
+  width: 75px;
+  height: 100vh;
+  background: #eee;
+  border-right: 1px solid #ddd;
+
+  .note-list-button {
+    position: absolute;
+    top: 200px;
+    left: 25px;
+  }
+  .notebook-list-button {
+    position: absolute;
+    top: 250px;
+    left: 25px;
+  }
+  .logout-button {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+  }
+  .note-list-button:hover,
+  .notebook-list-button:hover {
+    cursor: pointer;
+  }
+}

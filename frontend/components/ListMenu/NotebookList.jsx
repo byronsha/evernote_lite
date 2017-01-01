@@ -1,16 +1,22 @@
 import React, { PropTypes } from 'react'
+import NotebookHeader from './NotebookHeader'
 import Notebook from './Notebook'
+import AddNotebookContainer from './AddNotebookContainer'
 
 const NotebookList = ({ notebooks, isFetching, deleteNotebook }) => (
-  <ul>
-    {notebooks.map(notebook =>
-      <Notebook
-        key={notebook.id}
-        {...notebook}
-        deleteNotebook={() => deleteNotebook(notebook.id)}
-      />
-    )}
-  </ul>
+  <div className='list-menu'>
+    <NotebookHeader />
+    <div className='ui relaxed divided list large'>
+      {notebooks.map(notebook =>
+        <Notebook
+          key={notebook.id}
+          {...notebook}
+          deleteNotebook={() => deleteNotebook(notebook.id)}
+          />
+      )}
+    </div>
+    <AddNotebookContainer />
+  </div>
 )
 
 NotebookList.propTypes = {

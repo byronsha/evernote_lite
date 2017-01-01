@@ -38,7 +38,7 @@ export const loginUser = creds => dispatch => {
       if (user) {
         localStorage.setItem('client', JSON.stringify(user));
         dispatch(receiveLogin(user));
-        dispatch(push('/dashboard'));
+        dispatch(push('/home'));
       } else {
         const message = res.data.errors[0];
         dispatch(loginError(message));
@@ -61,7 +61,7 @@ export const logoutUser = () => dispatch => {
   dispatch(requestLogout());
   localStorage.removeItem('client');
   dispatch(receiveLogout())
-  dispatch(push('/'));
+  dispatch(push('/login'));
 }
 
 export const requestSignUp = creds => ({
@@ -89,7 +89,7 @@ export const signUpUser = creds => dispatch => {
       if (user) {
         localStorage.setItem('client', JSON.stringify(user))
         dispatch(receiveSignUp(user))
-        dispatch(push('/dashboard'))
+        dispatch(push('/home'))
       } else {
         const message = res.data.errors[0]
         dispatch(signUpError(message))
