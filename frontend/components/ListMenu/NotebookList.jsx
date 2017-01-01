@@ -5,8 +5,8 @@ import AddNotebookContainer from './AddNotebookContainer'
 
 const NotebookList = ({ notebooks, isFetching, deleteNotebook }) => (
   <div className='list-menu'>
-    <NotebookHeader />
-    <div className='ui relaxed divided list large'>
+    <NotebookHeader notebooks={notebooks} />
+    <div className='notebook-list'>
       {notebooks.map(notebook =>
         <Notebook
           key={notebook.id}

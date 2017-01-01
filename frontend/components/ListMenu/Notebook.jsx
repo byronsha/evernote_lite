@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
 const Notebook = ({ title, description, deleteNotebook }) => (
-  <div className='item'>
-    <div className='content'>
+  <div className='notebook'>
+    <div>
       <h4>{title}</h4>
       <p>{description}</p>
       <span onClick={deleteNotebook}>delete</span>
