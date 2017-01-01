@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 
 const Notebook = ({ title, description, deleteNotebook }) => (
   <div className='notebook'>
-    <div>
-      <h4>{title}</h4>
-      <p>{description}</p>
-      <span onClick={deleteNotebook}>delete</span>
-    </div>
+    <span>{title}</span>
+    <p>{description}</p>
+    <i onClick={deleteNotebook} className="trash outline icon large"></i>
   </div>
 )
 

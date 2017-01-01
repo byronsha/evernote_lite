@@ -2,12 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { createNotebook } from '../../actions/notebooks'
 
-let AddNotebookContainer = ({ dispatch }) => {
+let AddNotebook = ({ dispatch }) => {
   let title
   let description
 
   return (
-    <div className='add-notebook-form'>
+    <div className='add-notebook'>
       <form onSubmit={e => {
         e.preventDefault()
         if (!title.value.trim()) { return }
@@ -26,6 +26,6 @@ let AddNotebookContainer = ({ dispatch }) => {
     </div>
   )
 }
-AddNotebookContainer = connect()(AddNotebookContainer)
+AddNotebook = connect()(AddNotebook)
 
-export default AddNotebookContainer
+export default AddNotebook

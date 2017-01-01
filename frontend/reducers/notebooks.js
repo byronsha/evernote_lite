@@ -18,6 +18,7 @@ const notebooks = (state = {
         isFetching: true
       }
     case RECEIVE_NOTEBOOKS:
+      console.log(action.notebooks)
       return {
         notebooks: action.notebooks,
         isFetching: false

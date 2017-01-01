@@ -4,7 +4,7 @@ class Note extends Component {
   render() {
     return (
       <div className='note'>
-        Note
+        
       </div>
     )
   }

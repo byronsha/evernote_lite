@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import NotebookHeader from './NotebookHeader'
 import Notebook from './Notebook'
-import AddNotebookContainer from './AddNotebookContainer'
+import AddNotebook from './AddNotebook'
 
 const NotebookList = ({ notebooks, isFetching, deleteNotebook }) => (
   <div className='list-menu'>
@@ -15,7 +15,7 @@ const NotebookList = ({ notebooks, isFetching, deleteNotebook }) => (
           />
       )}
     </div>
-    <AddNotebookContainer />
+    <AddNotebook />
   </div>
 )
 
