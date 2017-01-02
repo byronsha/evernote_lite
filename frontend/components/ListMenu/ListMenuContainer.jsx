@@ -19,8 +19,6 @@ const mapStateToProps = state => ({
   listMenu: state.listMenu
 })
 
-const ListMenuContainer = connect(
+export default connect(
   mapStateToProps
 )(ListMenu)
-
-export default ListMenuContainer

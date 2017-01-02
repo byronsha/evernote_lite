@@ -1,11 +1,19 @@
 import React, { PropTypes } from 'react'
 import NotebookHeader from './NotebookHeader'
 import Notebook from './Notebook'
-import AddNotebook from './AddNotebook'
 
-const NotebookList = ({ notebooks, isFetching, deleteNotebook }) => (
+const NotebookList = ({
+  notebooks,
+  isFetching,
+  deleteNotebook,
+  showNotebookModal
+}) => (
   <div className='list-menu'>
-    <NotebookHeader notebooks={notebooks} />
+    <NotebookHeader
+      notebooks={notebooks}
+      showNotebookModal={showNotebookModal}
+    />
+
     <div className='notebook-list'>
       {notebooks.map(notebook =>
         <Notebook
@@ -15,7 +23,6 @@ const NotebookList = ({ notebooks, isFetching, deleteNotebook }) => (
           />
       )}
     </div>
-    <AddNotebook />
   </div>
 )
 

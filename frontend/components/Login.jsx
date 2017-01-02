@@ -32,14 +32,14 @@ class Login extends Component {
                 <label>Username</label>
                 <input
                   type='text'
-                  ref={input => { username = input }}
+                  ref={ref => { username = ref }}
                 />
               </div>
               <div className='field'>
                 <label>Password</label>
                 <input
                   type='password'
-                  ref={input => { password = input }}
+                  ref={ref => { password = ref }}
                 />
               </div>
               <div className='field'>
@@ -49,7 +49,9 @@ class Login extends Component {
               </div>
 
               {errorMessage &&
-                <div className='ui error message'><p>{errorMessage}</p></div>
+                <div className='ui error message'>
+                  <p>{errorMessage}</p>
+                </div>
               }
             </form>
           </div>

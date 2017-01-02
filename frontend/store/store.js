@@ -7,11 +7,13 @@ import createLogger from 'redux-logger'
 import session from '../reducers/session'
 import notebooks from '../reducers/notebooks'
 import listMenu from '../reducers/listMenu'
+import notebookModal from '../reducers/notebookModal'
 
 const rootReducer = combineReducers({
   session,
   notebooks,
   listMenu,
+  notebookModal,
   routing: routerReducer
 })
 

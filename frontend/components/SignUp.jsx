@@ -38,28 +38,28 @@ class SignUp extends Component {
                 <label>Username</label>
                 <input
                   type='text'
-                  ref={input => { username = input }}
+                  ref={ref => { username = ref }}
                 />
               </div>
               <div className='field'>
                 <label>Email</label>
                 <input
                   type='text'
-                  ref={input => { email = input }}
+                  ref={ref => { email = ref }}
                 />
               </div>
               <div className='field'>
                 <label>Name</label>
                 <input
                   type='text'
-                  ref={input => { name = input }}
+                  ref={ref => { name = ref }}
                   />
               </div>
               <div className='field'>
                 <label>Password</label>
                 <input
                   type='password'
-                  ref={input => { password = input }}
+                  ref={ref => { password = ref }}
                 />
               </div>
               <div className='field'>
@@ -69,7 +69,9 @@ class SignUp extends Component {
               </div>
 
               {errorMessage &&
-                <div className='ui error message'><p>{errorMessage}</p></div>
+                <div className='ui error message'>
+                  <p>{errorMessage}</p>
+                </div>
               }
             </form>
           </div>
