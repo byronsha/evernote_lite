@@ -5,12 +5,14 @@ import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 
 import session from '../reducers/session'
+import notes from '../reducers/notes'
 import notebooks from '../reducers/notebooks'
 import listMenu from '../reducers/listMenu'
 import notebookModal from '../reducers/notebookModal'
 
 const rootReducer = combineReducers({
   session,
+  notes,
   notebooks,
   listMenu,
   notebookModal,

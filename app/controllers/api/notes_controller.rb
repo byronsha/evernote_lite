@@ -3,8 +3,8 @@ class Api::NotesController < ApplicationController
   before_action :require_owner, only: [:update, :destroy]
 
   def index
-    if params[:notebook_id]
-      @notes = Note.find_by_notebook_id(params[:notebook_id])
+    if params[:user_id]
+      @notes = Note.find_by_user_id(params[:user_id])
     else
       @notes = Note.all.includes(:user)
     end

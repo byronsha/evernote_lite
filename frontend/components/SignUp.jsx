@@ -6,6 +6,7 @@ import { signUpUser } from '../actions/session'
 class SignUp extends Component {
   render() {
     const { isFetching, errorMessage, signUpUser } = this.props
+    
     let username
     let email
     let name
@@ -94,9 +95,7 @@ const mapDispatchToProps = ({
   signUpUser
 })
 
-const SignUpContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(SignUp)
-
-export default SignUpContainer

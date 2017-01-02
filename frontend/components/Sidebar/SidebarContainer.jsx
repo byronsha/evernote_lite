@@ -4,9 +4,12 @@ import { logoutUser } from '../../actions/session'
 import { showNoteList, showNotebookList } from '../../actions/listMenu'
 import Sidebar from './Sidebar'
 
-const mapStateToProps = state => ({
-  user: state.session.user
-})
+function mapStateToProps(state) {
+  return {
+    user: state.session.user,
+    listMenu: state.listMenu
+  }
+}
 
 const mapDispatchToProps = ({
   logoutUser,

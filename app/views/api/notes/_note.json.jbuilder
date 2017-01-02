@@ -9,3 +9,7 @@ json.extract! note,
 json.user do
   json.extract! note.user, :username
 end
+
+json.notebook do
+  json.extract! note.notebook
+end

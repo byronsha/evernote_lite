@@ -3,7 +3,7 @@ import {
   SHOW_NOTE_LIST
 } from '../actions/listMenu'
 
-const listMenu = (state = 'NOTEBOOKS', action) => {
+function listMenu(state = 'NOTEBOOKS', action) {
   switch (action.type) {
     case SHOW_NOTEBOOK_LIST:
       return action.listMenu

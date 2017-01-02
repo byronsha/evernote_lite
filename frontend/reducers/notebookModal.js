@@ -3,7 +3,7 @@ import {
   HIDE_NOTEBOOK_MODAL
 } from '../actions/notebookModal'
 
-const notebookModal = (state = false, action) => {
+function notebookModal(state = false, action) {
   switch (action.type) {
     case SHOW_NOTEBOOK_MODAL:
       return action.showing

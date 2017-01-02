@@ -9,12 +9,14 @@ import {
   LOGOUT_SUCCESS
 } from '../actions/session';
 
-const session = (state = {
+const initialState = {
   isFetching: false,
   isAuthenticated: localStorage.getItem('client') ? true : false,
   user: JSON.parse(localStorage.getItem('client')),
   errorMessage: ''
-}, action) => {
+}
+
+function session(state = initialState, action) {
   switch (action.type) {
     case LOGIN_REQUEST:
       return {
@@ -74,4 +76,4 @@ const session = (state = {
   }
 }
 
-export default session;
+export default session

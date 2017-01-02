@@ -65,18 +65,18 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  isFetching: state.session.isFetching,
-  errorMessage: state.session.errorMessage
-})
+function mapStateToProps(state) {
+  return {
+    isFetching: state.session.isFetching,
+    errorMessage: state.session.errorMessage
+  }
+}
 
 const mapDispatchToProps = ({
   loginUser
 })
 
-const LoginContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Login)
-
-export default LoginContainer

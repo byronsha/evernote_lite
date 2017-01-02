@@ -4,7 +4,7 @@ class Note < ActiveRecord::Base
   belongs_to :notebook
   belongs_to :user
 
-  def self.find_by_notebook_id(notebook_id)
-    self.joins(:notebook).where(notebooks: { id: notebook_id })
+  def self.find_by_user_id(user_id)
+    self.joins(:notebook).where(notebooks: { user_id: user_id })
   end
 end

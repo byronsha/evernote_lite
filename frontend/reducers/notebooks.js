@@ -5,12 +5,14 @@ import {
   NOTEBOOK_CREATED,
   DELETE_NOTEBOOK_INITIATED,
   NOTEBOOK_DELETED
-} from '../actions/notebooks';
+} from '../actions/notebooks'
 
-const notebooks = (state = {
+const initialState = {
   notebooks: [],
   isFetching: false
-}, action) => {
+}
+
+function notebooks(state = initialState, action) {
   switch (action.type) {
     case REQUEST_NOTEBOOKS:
       return {
@@ -49,4 +51,4 @@ const notebooks = (state = {
   }
 }
 
-export default notebooks;
+export default notebooks

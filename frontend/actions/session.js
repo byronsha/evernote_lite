@@ -13,89 +13,115 @@ export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
 export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 
-export const requestLogin = creds => ({
-  type: LOGIN_REQUEST,
-  creds
-})
-
-export const receiveLogin = user => ({
-  type: LOGIN_SUCCESS,
-  user
-})
-
-export const loginError = message => ({
-  type: LOGIN_FAILURE,
-  message
-})
-
-export const loginUser = creds => dispatch => {
-  dispatch(requestLogin(creds));
-
-  return axios.post('http://localhost:3000/api/sessions', { user: creds })
-    .then((res) => {
-      const user = res.data.user;
-
-      if (user) {
-        localStorage.setItem('client', JSON.stringify(user));
-        dispatch(receiveLogin(user));
-        dispatch(push('/home'));
-      } else {
-        const message = res.data.errors[0];
-        dispatch(loginError(message));
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    })
+// login actions
+export function requestLogin(creds) {
+  return {
+    type: LOGIN_REQUEST,
+    creds
+  }
 }
 
-export const requestLogout = () => ({
-  type: LOGOUT_REQUEST
-})
-
-export const receiveLogout = () => ({
-  type: LOGOUT_SUCCESS
-})
-
-export const logoutUser = () => dispatch => {
-  dispatch(requestLogout());
-  localStorage.removeItem('client');
-  dispatch(receiveLogout())
-  dispatch(push('/login'));
+export function receiveLogin(user) {
+  return {
+    type: LOGIN_SUCCESS,
+    user
+  }
 }
 
-export const requestSignUp = creds => ({
-  type: SIGNUP_REQUEST,
-  creds
-})
+export function loginError(message) {
+  return {
+    type: LOGIN_FAILURE,
+    message
+  }
+}
 
-export const receiveSignUp = user => ({
-  type: SIGNUP_SUCCESS,
-  user
-})
+export function loginUser(creds) {
+  return function(dispatch) {
+    dispatch(requestLogin(creds));
 
-export const signUpError = message => ({
-  type: SIGNUP_FAILURE,
-  message
-})
+    return axios.post('http://localhost:3000/api/sessions', { user: creds })
+      .then((res) => {
+        const user = res.data.user;
 
-export const signUpUser = creds => dispatch => {
-  dispatch(requestSignUp(creds))
+        if (user) {
+          localStorage.setItem('client', JSON.stringify(user));
+          dispatch(receiveLogin(user));
+          dispatch(push('/home'));
+        } else {
+          const message = res.data.errors[0];
+          dispatch(loginError(message));
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+}
 
-  return axios.post(`http://localhost:3000/api/users`, { user: creds })
-    .then((res) => {
-      const user = res.data.user;
+// logout actions
+export function requestLogout() {
+  return {
+    type: LOGOUT_REQUEST
+  }
+}
 
-      if (user) {
-        localStorage.setItem('client', JSON.stringify(user))
-        dispatch(receiveSignUp(user))
-        dispatch(push('/home'))
-      } else {
-        const message = res.data.errors[0]
-        dispatch(signUpError(message))
-      }
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+export function receiveLogout() {
+  return {
+    type: LOGOUT_SUCCESS
+  }
+}
+
+export function logoutUser() {
+  return function(dispatch) {
+    dispatch(requestLogout());
+    localStorage.removeItem('client');
+    dispatch(receiveLogout())
+    dispatch(push('/login'));
+  }
+}
+
+
+// signup actions
+export function requestSignUp(creds) {
+  return {
+    type: SIGNUP_REQUEST,
+    creds
+  }
+}
+
+export function receiveSignUp(user) {
+  return {
+    type: SIGNUP_SUCCESS,
+    user
+  }
+}
+
+export function signUpError(message) {
+  return {
+    type: SIGNUP_FAILURE,
+    message
+  }
+}
+
+export function signUpUser(creds) {
+  return function(dispatch) {
+    dispatch(requestSignUp(creds))
+
+    return axios.post(`http://localhost:3000/api/users`, { user: creds })
+      .then((res) => {
+        const user = res.data.user;
+
+        if (user) {
+          localStorage.setItem('client', JSON.stringify(user))
+          dispatch(receiveSignUp(user))
+          dispatch(push('/home'))
+        } else {
+          const message = res.data.errors[0]
+          dispatch(signUpError(message))
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
 }

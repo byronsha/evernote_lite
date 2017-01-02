@@ -4,10 +4,12 @@ import { deleteNotebook } from '../../actions/notebooks'
 import { showNotebookModal } from '../../actions/notebookModal'
 import NotebookList from './NotebookList'
 
-const mapStateToProps = state => ({
-  isFetching: state.notebooks.isFetching,
-  notebooks: state.notebooks.notebooks
-})
+function mapStateToProps(state) {
+  return {
+    isFetching: state.notebooks.isFetching,
+    notebooks: state.notebooks.notebooks
+  }
+}
 
 const mapDispatchToProps = ({
   deleteNotebook,

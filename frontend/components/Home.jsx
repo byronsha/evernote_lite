@@ -1,19 +1,19 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import SidebarContainer from './Sidebar/SidebarContainer'
-import ListMenuContainer from './ListMenu/ListMenuContainer'
-import NoteContainer from './Note/NoteContainer'
-import NotebookModal from './NotebookModal/NotebookModal'
+import ListMenu from './ListMenu/ListMenu'
+import NoteEditorContainer from './NoteEditor/NoteEditorContainer'
+import AddNotebookModal from './NotebookList/AddNotebookModal'
 
 class Home extends Component {
   render() {
     return (
       <div>
         <SidebarContainer />
-        <ListMenuContainer />
-        <NoteContainer />
+        <ListMenu />
+        <NoteEditorContainer />
 
-        <NotebookModal />
+        <AddNotebookModal />
       </div>
     )
   }

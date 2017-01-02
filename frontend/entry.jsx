@@ -6,6 +6,7 @@ import { syncHistoryWithStore, push } from 'react-router-redux'
 
 import store from './store/store'
 import { fetchNotebooks } from './actions/notebooks'
+import { fetchNotes } from './actions/notes'
 
 import Landing from './components/Landing'
 import Login from './components/Login'
@@ -14,18 +15,20 @@ import Home from './components/Home'
 
 const history = syncHistoryWithStore(browserHistory, store)
 
-const preventIfLoggedIn = () => {
+function preventIfLoggedIn() {
   if (store.getState().session.isAuthenticated) {
     store.dispatch(push('/home'))
   }
 }
 
-const requireLogin = () => {
+function requireLogin() {
   if (!store.getState().session.isAuthenticated) {
     store.dispatch(push('/login'))
     return
   }
-  store.dispatch(fetchNotebooks(store.getState().session.user.id))
+  const userId = store.getState().session.user.id
+  store.dispatch(fetchNotebooks(userId))
+  store.dispatch(fetchNotes(userId))
 }
 
 const Root = () => (

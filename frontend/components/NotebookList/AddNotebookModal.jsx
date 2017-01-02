@@ -67,9 +67,11 @@ class NotebookModal extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  isOpen: state.notebookModal
-})
+function mapStateToProps(state) {
+  return {
+    isOpen: state.notebookModal
+  }
+}
 
 const mapDispatchToProps = ({
   createNotebook,

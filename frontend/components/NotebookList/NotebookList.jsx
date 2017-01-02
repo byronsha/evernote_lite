@@ -2,29 +2,31 @@ import React, { PropTypes } from 'react'
 import NotebookHeader from './NotebookHeader'
 import Notebook from './Notebook'
 
-const NotebookList = ({
+function NotebookList({
   notebooks,
   isFetching,
   deleteNotebook,
   showNotebookModal
-}) => (
-  <div className='list-menu'>
-    <NotebookHeader
-      notebooks={notebooks}
-      showNotebookModal={showNotebookModal}
-    />
+}) {
+  return (
+    <div className='list-menu'>
+      <NotebookHeader
+        notebooks={notebooks}
+        showNotebookModal={showNotebookModal}
+        />
 
-    <div className='notebook-list'>
-      {notebooks.map(notebook =>
-        <Notebook
-          key={notebook.id}
-          {...notebook}
-          deleteNotebook={() => deleteNotebook(notebook.id)}
-          />
-      )}
+      <div className='notebook-list'>
+        {notebooks.map(notebook =>
+          <Notebook
+            key={notebook.id}
+            {...notebook}
+            deleteNotebook={() => deleteNotebook(notebook.id)}
+            />
+        )}
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 NotebookList.propTypes = {
   notebooks: PropTypes.arrayOf(PropTypes.shape({
