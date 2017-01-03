@@ -1,14 +1,14 @@
 import React from 'react'
 
-function NoteListButton({ listMenu, showNoteList }) {
+function NotesButton({ listMenu, showNoteList }) {
   return (
     <div
       onClick={showNoteList}
-      className='note-list-button'
+      className='notes-button'
     >
       <i className='file text icon blue large'></i>
     </div>
   )
 }
 
-export default NoteListButton
+export default NotesButton

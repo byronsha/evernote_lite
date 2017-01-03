@@ -1,21 +1,31 @@
 import React from 'react'
-import NoteListButton from './NoteListButton'
-import NotebookListButton from './NotebookListButton'
+import CreateNoteButton from './CreateNoteButton'
+import NotesButton from './NotesButton'
+import NotebooksButton from './NotebooksButton'
 
 function Sidebar({
   user,
   listMenu,
-  logoutUser,
+  notebooks,
+  routing,
+  createNote,
   showNoteList,
-  showNotebookList
+  showNotebookList,
+  logoutUser
 }) {
   return (
     <div className='sidebar'>
-      <NoteListButton
+      <CreateNoteButton
+        notebooks={notebooks}
+        routing={routing}
+        createNote={createNote}
+        showNoteList={showNoteList}
+      />
+      <NotesButton
         listMenu={listMenu}
         showNoteList={showNoteList}
       />
-      <NotebookListButton
+      <NotebooksButton
         listMenu={listMenu}
         showNotebookList={showNotebookList}
       />

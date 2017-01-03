@@ -5,13 +5,17 @@
   background: #eee;
   border-right: 1px solid #ddd;
 
-
-  .note-list-button {
+  .create-note-button {
+    position: absolute;
+    top: 150px;
+    left: 25px;
+  }
+  .notes-button {
     position: absolute;
     top: 200px;
     left: 25px;
   }
-  .notebook-list-button {
+  .notebooks-button {
     position: absolute;
     top: 250px;
     left: 25px;
@@ -21,8 +25,9 @@
     bottom: 16px;
     left: 16px;
   }
-  .note-list-button:hover,
-  .notebook-list-button:hover {
+  .create-note-button:hover,
+  .notes-button:hover,
+  .notebooks-button:hover {
     cursor: pointer;
   }
 }

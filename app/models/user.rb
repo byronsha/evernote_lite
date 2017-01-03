@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   has_many :notebooks, dependent: :destroy
-  has_many :notes
+  has_many :notes, through: :notebooks
 
   after_initialize :ensure_session_token
 

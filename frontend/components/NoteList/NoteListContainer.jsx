@@ -5,7 +5,8 @@ import NoteList from './NoteList'
 function mapStateToProps(state) {
   return {
     isFetching: state.notes.isFetching,
-    notes: state.notes.notes
+    notes: state.notes.notes,
+    path: state.routing.locationBeforeTransitions.pathname
   }
 }
 

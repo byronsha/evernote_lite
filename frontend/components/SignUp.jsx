@@ -6,7 +6,7 @@ import { signUpUser } from '../actions/session'
 class SignUp extends Component {
   render() {
     const { isFetching, errorMessage, signUpUser } = this.props
-    
+
     let username
     let email
     let name
@@ -86,10 +86,12 @@ class SignUp extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  isFetching: state.session.isFetching,
-  errorMessage: state.session.errorMessage
-})
+function mapStateToProps(state) {
+  return {
+    isFetching: state.session.isFetching,
+    errorMessage: state.session.errorMessage
+  }
+}
 
 const mapDispatchToProps = ({
   signUpUser

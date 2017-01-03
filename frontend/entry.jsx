@@ -12,6 +12,7 @@ import Landing from './components/Landing'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
 import Home from './components/Home'
+import ActiveNote from './components/ActiveNote/ActiveNote'
 
 const history = syncHistoryWithStore(browserHistory, store)
 
@@ -31,16 +32,20 @@ function requireLogin() {
   store.dispatch(fetchNotes(userId))
 }
 
-const Root = () => (
-  <Provider store={store}>
-    <Router history={history}>
-      <Route name='landing' path='/' component={Landing} onEnter={preventIfLoggedIn} />
-      <Route name='login' path='/login' component={Login} onEnter={preventIfLoggedIn} />
-      <Route name='signup' path='/signup' component={SignUp} onEnter={preventIfLoggedIn} />
-      <Route name='home' path='/home' component={Home} onEnter={requireLogin} />
-    </Router>
-  </Provider>
-)
+function Root() {
+  return (
+    <Provider store={store}>
+      <Router history={history}>
+        <Route name='landing' path='/' component={Landing} onEnter={preventIfLoggedIn} />
+        <Route name='login' path='/login' component={Login} onEnter={preventIfLoggedIn} />
+        <Route name='signup' path='/signup' component={SignUp} onEnter={preventIfLoggedIn} />
+        <Route name='home' path='/home' component={Home} onEnter={requireLogin}>
+          <ActiveNote name='activeNote' path=':noteId' component={ActiveNote} />
+        </Route>
+      </Router>
+    </Provider>
+  )
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(

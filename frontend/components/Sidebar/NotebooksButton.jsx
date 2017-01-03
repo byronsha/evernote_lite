@@ -1,14 +1,14 @@
 import React from 'react'
 
-function NotebookListButton({ listMenu, showNotebookList }) {
+function NotebooksButton({ listMenu, showNotebookList }) {
   return (
     <div
+      className='notebooks-button'
       onClick={showNotebookList}
-      className='notebook-list-button'
     >
       <i className='book icon blue large'></i>
     </div>
   )
 }
 
-export default NotebookListButton
+export default NotebooksButton

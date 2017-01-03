@@ -7,7 +7,7 @@ json.extract! note,
   :updated_at
 
 json.user do
-  json.extract! note.user, :username
+  json.extract! note.user
 end
 
 json.notebook do

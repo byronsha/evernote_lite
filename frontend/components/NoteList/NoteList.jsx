@@ -4,7 +4,8 @@ import Note from './Note'
 
 function NoteList({
   notes,
-  isFetching
+  isFetching,
+  path
 }) {
   return (
     <div className='list-menu'>
@@ -17,14 +18,15 @@ function NoteList({
           <Note
             key={note.id}
             {...note}
-            />
+            path={path}
+          />
         )}
       </div>
     </div>
   )
 }
 
-Note.propTypes = {
+NoteList.propTypes = {
   notes: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
