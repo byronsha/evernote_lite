@@ -34,14 +34,14 @@ class NotebookModal extends Component {
               <label>Title</label>
               <input
                 type='text'
-                ref={node => { title = node }}
+                ref={ref => { title = ref }}
               />
             </div>
             <div className='field'>
               <label>Description</label>
               <input
                 type='text'
-                ref={node => { description = node }}
+                ref={ref => { description = ref }}
               />
             </div>
           </form>

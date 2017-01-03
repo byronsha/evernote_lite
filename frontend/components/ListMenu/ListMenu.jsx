@@ -7,9 +7,9 @@ class ListMenu extends Component {
   render() {
     const listMenu = this.props.listMenu
 
-    if (listMenu === 'NOTES') {
+    if (listMenu === 'notes') {
       return <NoteListContainer />
-    } else if (listMenu === 'NOTEBOOKS') {
+    } else if (listMenu === 'notebooks') {
       return <NotebookListContainer />
     }
   }
