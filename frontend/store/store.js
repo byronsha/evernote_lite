@@ -8,6 +8,7 @@ import session from '../reducers/session'
 import notes from '../reducers/notes'
 import notebooks from '../reducers/notebooks'
 import listMenu from '../reducers/listMenu'
+import deleteNoteModal from '../reducers/deleteNoteModal'
 import addNotebookModal from '../reducers/addNotebookModal'
 import deleteNotebookModal from '../reducers/deleteNotebookModal'
 
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   notes,
   notebooks,
   listMenu,
+  deleteNoteModal,
   addNotebookModal,
   deleteNotebookModal,
   routing: routerReducer

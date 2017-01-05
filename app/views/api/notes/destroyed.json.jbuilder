@@ -1,5 +1,5 @@
 json.note do
-  json.username @note.user.username
+  json.partial! "api/notes/note", note: @note
 end
 
 json.success ["Your note was deleted!"]

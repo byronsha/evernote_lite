@@ -5,7 +5,8 @@ import Note from './Note'
 function NoteList({
   notes,
   isFetching,
-  path
+  path,
+  showDeleteNoteModal
 }) {
   return (
     <div className='list-menu'>
@@ -17,8 +18,9 @@ function NoteList({
         {notes.map(note =>
           <Note
             key={note.id}
-            {...note}
+            note={note}
             path={path}
+            showDeleteNoteModal={showDeleteNoteModal}
           />
         )}
       </div>

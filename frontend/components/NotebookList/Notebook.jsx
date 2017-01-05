@@ -7,7 +7,11 @@ function Notebook({ notebook, showDeleteNotebookModal }) {
       <span>{notebook.title}</span>
       <p>{notebook.description}</p>
       <p><Timestamp time={notebook.created_at} /></p>
-      <i onClick={() => showDeleteNotebookModal(notebook)} className="trash outline icon large"></i>
+      <i
+        onClick={() => showDeleteNotebookModal(notebook)}
+        className='trash outline icon large'
+      >
+      </i>
     </div>
   )
 }

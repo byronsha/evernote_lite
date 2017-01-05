@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { showDeleteNoteModal } from '../../actions/deleteNoteModal'
 import NoteList from './NoteList'
 
 function mapStateToProps(state) {
@@ -10,8 +11,13 @@ function mapStateToProps(state) {
   }
 }
 
+const mapDispatchToProps = ({
+  showDeleteNoteModal
+})
+
 const NoteListContainer = connect(
   mapStateToProps,
+  mapDispatchToProps
 )(NoteList)
 
 export default NoteListContainer
