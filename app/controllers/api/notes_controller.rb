@@ -46,6 +46,7 @@ class Api::NotesController < ApplicationController
     return not_found if @note.nil?
 
     if @note.destroy
+      @latest_note = Note.last
       render :destroyed
     else
       render json: { errors: @note.errors.full_messages }

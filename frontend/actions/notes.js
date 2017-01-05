@@ -91,7 +91,9 @@ export function deleteNote(noteId) {
 
     return axios.delete(`http://localhost:3000/api/notes/${noteId}`)
       .then((response) => {
+        const latestNote = response.data.latest_note
         dispatch(noteDeleted(noteId))
+        browserHistory.push(`/home/${latestNote.id}`)
       })
       .catch((error) => {
         console.log(error)
