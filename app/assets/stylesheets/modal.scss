@@ -1,3 +1,21 @@
 .ui.modal {
   top: 30%;
 }
+.modal-animation-enter {
+  opacity: 0.00;
+  transform: scale(0.5);
+  transition: all 0.5s;
+}
+.modal-animation-enter.modal-animation-enter-active {
+  opacity: 1;
+  transform: scale(1);
+}
+.modal-animation-leave {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.5s;
+}
+.modal-animation-leave.modal-animation-leave-active {
+  opacity: 0.00;
+  transform: scale(0.5);
+}

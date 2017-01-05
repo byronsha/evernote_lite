@@ -11,7 +11,7 @@ function NoteList({
     <div className='list-menu'>
       <NoteHeader
         notes={notes}
-        />
+      />
 
       <div className='note-list'>
         {notes.map(note =>

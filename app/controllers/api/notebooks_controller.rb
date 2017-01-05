@@ -4,7 +4,7 @@ class Api::NotebooksController < ApplicationController
 
   def index
     if params[:user_id]
-      @notebooks = Notebook.find_by_user_id(params[:user_id])
+      @notebooks = Notebook.find_by_user_id(params[:user_id]).order('created_at DESC')
     else
       @notebooks = Notebook.all.includes(:user)
     end

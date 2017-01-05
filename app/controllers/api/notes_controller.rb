@@ -4,7 +4,7 @@ class Api::NotesController < ApplicationController
 
   def index
     if params[:user_id]
-      @notes = Note.find_by_user_id(params[:user_id])
+      @notes = Note.find_by_user_id(params[:user_id]).order('created_at DESC')
     else
       @notes = Note.all.includes(:user)
     end

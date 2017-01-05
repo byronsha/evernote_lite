@@ -11,17 +11,11 @@ function Note({ id, title, content, created_at, path }) {
   return (
     <div
       className={className}
-      onClick={() => {
-        browserHistory.push(`/home/${id}`)
-      }}
+      onClick={() => {browserHistory.push(`/home/${id}`)}}
     >
       <span>{title}</span>
-      <p>
-        <Timestamp time={created_at} />
-      </p>
-      <p>
-        {content}
-      </p>
+      <p><Timestamp time={created_at} /></p>
+      <p>{content}</p>
     </div>
   )
 }

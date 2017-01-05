@@ -5,23 +5,23 @@ import Notebook from './Notebook'
 function NotebookList({
   notebooks,
   isFetching,
-  deleteNotebook,
-  showNotebookModal
+  showAddNotebookModal,
+  showDeleteNotebookModal
 }) {
   return (
     <div className='list-menu'>
       <NotebookHeader
         notebooks={notebooks}
-        showNotebookModal={showNotebookModal}
-        />
-
+        showAddNotebookModal={showAddNotebookModal}
+      />
+    
       <div className='notebook-list'>
         {notebooks.map(notebook =>
           <Notebook
             key={notebook.id}
-            {...notebook}
-            deleteNotebook={() => deleteNotebook(notebook.id)}
-            />
+            notebook={notebook}
+            showDeleteNotebookModal={showDeleteNotebookModal}
+          />
         )}
       </div>
     </div>
@@ -35,7 +35,8 @@ NotebookList.propTypes = {
     description: PropTypes.string
   }).isRequired).isRequired,
   isFetching: PropTypes.bool.isRequired,
-  deleteNotebook: PropTypes.func.isRequired
+  showAddNotebookModal: PropTypes.func.isRequired,
+  showDeleteNotebookModal: PropTypes.func.isRequired
 }
 
 export default NotebookList

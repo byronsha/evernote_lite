@@ -31,7 +31,7 @@ function notes(state = initialState, action) {
       }
     case NOTE_CREATED:
       return {
-        notes: state.notes.concat(action.note),
+        notes: [action.note].concat(state.notes),
         isFetching: false
       }
     case DELETE_NOTE_INITIATED:

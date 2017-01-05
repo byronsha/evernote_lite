@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { deleteNotebook } from '../../actions/notebooks'
-import { showNotebookModal } from '../../actions/notebookModal'
+import { showAddNotebookModal } from '../../actions/addNotebookModal'
+import { showDeleteNotebookModal } from '../../actions/deleteNotebookModal'
 import NotebookList from './NotebookList'
 
 function mapStateToProps(state) {
@@ -12,8 +12,8 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = ({
-  deleteNotebook,
-  showNotebookModal
+  showAddNotebookModal,
+  showDeleteNotebookModal
 })
 
 const NotebookListContainer = connect(

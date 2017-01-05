@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import SidebarContainer from './Sidebar/SidebarContainer'
 import ListMenu from './ListMenu/ListMenu'
-import AddNotebookModal from './NotebookList/AddNotebookModal'
+import AddNotebookModal from './Modals/AddNotebookModal'
+import DeleteNotebookModal from './Modals/DeleteNotebookModal'
 
 class Home extends Component {
   render() {
@@ -14,6 +15,7 @@ class Home extends Component {
         {this.props.children}
 
         <AddNotebookModal />
+        <DeleteNotebookModal />
       </div>
     )
   }

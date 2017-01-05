@@ -1,11 +1,13 @@
 import React from 'react'
+import Timestamp from 'react-timestamp'
 
-function Notebook({ title, description, deleteNotebook }) {
+function Notebook({ notebook, showDeleteNotebookModal }) {
   return (
     <div className='notebook'>
-      <span>{title}</span>
-      <p>{description}</p>
-      <i onClick={deleteNotebook} className="trash outline icon large"></i>
+      <span>{notebook.title}</span>
+      <p>{notebook.description}</p>
+      <p><Timestamp time={notebook.created_at} /></p>
+      <i onClick={() => showDeleteNotebookModal(notebook)} className="trash outline icon large"></i>
     </div>
   )
 }

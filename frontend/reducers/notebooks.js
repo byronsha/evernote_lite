@@ -31,7 +31,7 @@ function notebooks(state = initialState, action) {
       }
     case NOTEBOOK_CREATED:
       return {
-        notebooks: state.notebooks.concat(action.notebook),
+        notebooks: [action.notebook].concat(state.notebooks),
         isFetching: false
       }
     case DELETE_NOTEBOOK_INITIATED:
