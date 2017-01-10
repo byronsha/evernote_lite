@@ -4,7 +4,9 @@ import {
   CREATE_NOTE_INITIATED,
   NOTE_CREATED,
   DELETE_NOTE_INITIATED,
-  NOTE_DELETED
+  NOTE_DELETED,
+  UPDATE_NOTE_INITIATED,
+  NOTE_UPDATED
 } from '../actions/notes'
 
 const initialState = {
@@ -44,6 +46,21 @@ function notes(state = initialState, action) {
         notes: state.notes.filter(note =>
           note.id !== action.noteId
         ),
+        isFetching: false
+      }
+    case UPDATE_NOTE_INITIATED:
+      return {
+        ...state,
+        isFetching: true
+      }
+    case NOTE_UPDATED:
+      return {
+        notes: state.notes.map(note => {
+          if (note.id !== action.note.id) {
+            return note
+          }
+          return action.note
+        }),
         isFetching: false
       }
     default:

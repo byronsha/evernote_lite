@@ -12,7 +12,7 @@ import Landing from './components/Landing'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
 import Home from './components/Home'
-import ActiveNote from './components/ActiveNote/ActiveNote'
+import ActiveNoteContainer from './components/ActiveNote/ActiveNoteContainer'
 
 const history = syncHistoryWithStore(browserHistory, store)
 
@@ -40,7 +40,7 @@ function Root() {
         <Route name='login' path='/login' component={Login} onEnter={preventIfLoggedIn} />
         <Route name='signup' path='/signup' component={SignUp} onEnter={preventIfLoggedIn} />
         <Route name='home' path='/home' component={Home} onEnter={requireLogin}>
-          <ActiveNote name='activeNote' path=':noteId' component={ActiveNote} />
+          <Route name='activeNote' path=':noteId' component={ActiveNoteContainer} />
         </Route>
       </Router>
     </Provider>

@@ -1,40 +1,64 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import Timestamp from 'react-timestamp'
 
 class ActiveNote extends Component {
-  findNoteById(notes, noteId) {
-    for (var i = 0; i < notes.length; i++) {
-      if (notes[i].id == noteId) {
-        return notes[i]
-      }
-    }
-  }
-
   render() {
-    const { notes } = this.props
-    const note = this.findNoteById(notes, this.props.params.noteId)
+    const { note, deleteNote, updateNote } = this.props
+    let title
+    let content
 
     if (!note) {
       return (<div></div>)
     }
 
     return (
-      <div className='active-note'>
-        <h1>{note.title}</h1>
-        <Timestamp time={note.created_at} />
-        <p>{note.content}</p>
+      <div className='active-note-container'>
+        <div className='active-note'>
+          <div className='active-note-toolbar'>
+            created <Timestamp time={note.created_at} />
+            , updated <Timestamp time={note.updated_at} />
+          </div>
+
+          <div className='active-note-title'>
+            <input
+              type='text'
+              value={note.title}
+              ref={ref => { title = ref }}
+              spellCheck='false'
+              onChange={() => {
+                const newNote = Object.assign(
+                  {},
+                  note,
+                  { title: title.value }
+                )
+                updateNote(newNote)
+              }}
+            >
+            </input>
+          </div>
+
+          <div className='active-note-content'>
+            <textarea
+              type='text'
+              value={note.content}
+              placeholder='Just start typing...'
+              ref={ref => { content = ref}}
+              spellCheck='false'
+              onChange={() => {
+                const newNote = Object.assign(
+                  {},
+                  note,
+                  { content: content.value }
+                )
+                updateNote(newNote)
+              }}
+              >
+            </textarea>
+          </div>
+        </div>
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    notes: state.notes.notes
-  }
-}
-
-export default connect(
-  mapStateToProps
-)(ActiveNote)
+export default ActiveNote

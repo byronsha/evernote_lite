@@ -8,6 +8,8 @@ export const CREATE_NOTE_INITIATED = 'CREATE_NOTE_INITIATED'
 export const NOTE_CREATED = 'NOTE_CREATED'
 export const DELETE_NOTE_INITIATED = 'DELETE_NOTE_INITIATED'
 export const NOTE_DELETED = 'NOTE_DELETED'
+export const UPDATE_NOTE_INITIATED = 'UPDATE_NOTE_INITIATED'
+export const NOTE_UPDATED = 'NOTE_UPDATED'
 
 export function requestNotes(userId) {
   return {
@@ -94,6 +96,35 @@ export function deleteNote(noteId) {
         const latestNote = response.data.latest_note
         dispatch(noteDeleted(noteId))
         browserHistory.push(`/home/${latestNote.id}`)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+}
+
+export function updateNoteInitiated(note) {
+  return {
+    type: UPDATE_NOTE_INITIATED,
+    note
+  }
+}
+
+export function noteUpdated(note) {
+  return {
+    type: NOTE_UPDATED,
+    note
+  }
+}
+
+export function updateNote(note) {
+  return function(dispatch) {
+    dispatch(updateNoteInitiated(note))
+
+    return axios.put(`http://localhost:3000/api/notes/${note.id}`, { note: note })
+      .then((response) => {
+        const note = response.data.note
+        dispatch(noteUpdated(note))
       })
       .catch((error) => {
         console.log(error)
