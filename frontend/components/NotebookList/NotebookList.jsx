@@ -6,7 +6,9 @@ function NotebookList({
   notebooks,
   isFetching,
   showAddNotebookModal,
-  showDeleteNotebookModal
+  showDeleteNotebookModal,
+  showNoteList,
+  setActiveNotebook
 }) {
   return (
     <div className='list-menu'>
@@ -14,13 +16,23 @@ function NotebookList({
         notebooks={notebooks}
         showAddNotebookModal={showAddNotebookModal}
       />
-    
+
       <div className='notebook-list'>
+        <div
+          className='notebook'
+          onClick={() => {
+            setActiveNotebook(null)
+            showNoteList()
+        }}>
+          <span>All Notes</span>
+        </div>
         {notebooks.map(notebook =>
           <Notebook
             key={notebook.id}
             notebook={notebook}
             showDeleteNotebookModal={showDeleteNotebookModal}
+            showNoteList={showNoteList}
+            setActiveNotebook={setActiveNotebook}
           />
         )}
       </div>

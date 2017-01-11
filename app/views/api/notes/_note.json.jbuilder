@@ -1,5 +1,6 @@
 json.extract! note,
   :id,
+  :notebook_id,
   :title,
   :content,
   :image_url,

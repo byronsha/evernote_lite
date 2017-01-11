@@ -1,9 +1,19 @@
 import React from 'react'
 import Timestamp from 'react-timestamp'
 
-function Notebook({ notebook, showDeleteNotebookModal }) {
+function Notebook({
+  notebook,
+  showDeleteNotebookModal,
+  showNoteList,
+  setActiveNotebook
+}) {
   return (
-    <div className='notebook'>
+    <div
+      className='notebook'
+      onClick={() => {
+        setActiveNotebook(notebook.id)
+        showNoteList()
+    }}>
       <span>{notebook.title}</span>
       <p>{notebook.description}</p>
       <p><Timestamp time={notebook.created_at} /></p>
