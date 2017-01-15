@@ -1,3 +1,12 @@
+#notebook-list-container {
+  position: absolute;
+  width: 425px;
+  height: 100vh;
+  background: white;
+  z-index: 1;
+  border-right: 1px solid #ddd;
+}
+
 .notebook-header {
   position: relative;
   padding: 25px 25px 10px 25px;
@@ -76,4 +85,19 @@
 
 .notebook:last-child {
   border: none;
+}
+
+.notebook-list-animation-enter {
+  left: -425px;
+  transition: all 0.5s;
+}
+.notebook-list-animation-enter.notebook-list-animation-enter-active {
+  left: 0px;
+}
+.notebook-list-animation-leave {
+  left: 0px;
+  transition: all 0.5s;
+}
+.notebook-list-animation-leave.notebook-list-animation-leave-active {
+  left: -425px;
 }

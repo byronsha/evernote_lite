@@ -1,8 +1,13 @@
 import React from 'react'
 
-function NotesButton({ listMenu, showNoteList }) {
+function NotesButton({ listMenu, hideNotebookList, setActiveNotebook }) {
   return (
-    <div onClick={showNoteList} className='notes-button'>
+    <div
+      className='notes-button'
+      onClick={() => {
+        hideNotebookList()
+        setActiveNotebook(null)
+    }}>
       <i className='file text icon blue large'></i>
     </div>
   )

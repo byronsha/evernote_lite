@@ -25,6 +25,7 @@ class ActiveNote extends Component {
               value={note.title}
               ref={ref => { title = ref }}
               spellCheck='false'
+              placeholder='Title...'
               onChange={() => {
                 const newNote = Object.assign(
                   {},

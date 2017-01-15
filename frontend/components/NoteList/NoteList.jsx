@@ -4,14 +4,16 @@ import Note from './Note'
 
 function NoteList({
   notes,
+  activeNotebook,
   isFetching,
   path,
   showDeleteNoteModal
 }) {
   return (
-    <div className='list-menu'>
+    <div id='note-list-container'>
       <NoteHeader
         notes={notes}
+        activeNotebook={activeNotebook}
       />
 
       <div className='note-list'>

@@ -4,7 +4,7 @@ function CreateNoteButton({
   notebooks,
   routing,
   createNote,
-  showNoteList
+  hideNotebookList
 }) {
   return (
     <div
@@ -15,10 +15,10 @@ function CreateNoteButton({
         } else {
           createNote({
             notebook_id: notebooks[0].id,
-            title: 'Untitled',
+            title: '',
             content: ''
           })
-          showNoteList()
+          hideNotebookList()
         }
       }}
     >

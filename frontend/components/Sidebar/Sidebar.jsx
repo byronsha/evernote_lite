@@ -9,8 +9,9 @@ function Sidebar({
   notebooks,
   routing,
   createNote,
-  showNoteList,
+  hideNotebookList,
   showNotebookList,
+  setActiveNotebook,
   logoutUser
 }) {
   return (
@@ -19,11 +20,12 @@ function Sidebar({
         notebooks={notebooks}
         routing={routing}
         createNote={createNote}
-        showNoteList={showNoteList}
+        hideNotebookList={hideNotebookList}
       />
       <NotesButton
         listMenu={listMenu}
-        showNoteList={showNoteList}
+        hideNotebookList={hideNotebookList}
+        setActiveNotebook={setActiveNotebook}
       />
       <NotebooksButton
         listMenu={listMenu}

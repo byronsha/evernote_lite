@@ -1,12 +1,17 @@
 import axios from 'axios'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
+// request actionss
 export const REQUEST_NOTEBOOKS = 'REQUEST_NOTEBOOKS'
-export const RECEIVE_NOTEBOOKS = 'RECEIVE_NOTEBOOKS'
 export const CREATE_NOTEBOOK_INITIATED = 'CREATE_NOTEBOOK_INITIATED'
-export const NOTEBOOK_CREATED = 'NOTEBOOK_CREATED'
 export const DELETE_NOTEBOOK_INITIATED = 'DELETE_NOTEBOOK_INITIATED'
+// response actionss
+export const RECEIVE_NOTEBOOKS = 'RECEIVE_NOTEBOOKS'
+export const NOTEBOOK_CREATED = 'NOTEBOOK_CREATED'
 export const NOTEBOOK_DELETED = 'NOTEBOOK_DELETED'
+// ui actions
+export const SHOW_NOTEBOOK_LIST = 'SHOW_NOTEBOOK_LIST'
+export const HIDE_NOTEBOOK_LIST = 'HIDE_NOTEBOOK_LIST'
 
 export function requestNotebooks(userId) {
   return {
@@ -91,5 +96,17 @@ export function deleteNotebook(notebookId) {
       .catch((error) => {
         console.log(error)
       })
+  }
+}
+
+export function showNotebookList() {
+  return {
+    type: SHOW_NOTEBOOK_LIST
+  }
+}
+
+export function hideNotebookList() {
+  return {
+    type: HIDE_NOTEBOOK_LIST
   }
 }

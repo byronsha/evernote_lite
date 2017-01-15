@@ -1,22 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { hideNotebookList } from '../../actions/notebooks'
+import { setActiveNotebook } from '../../actions/activeNotebook'
 import { showAddNotebookModal } from '../../actions/addNotebookModal'
 import { showDeleteNotebookModal } from '../../actions/deleteNotebookModal'
-import { showNoteList } from '../../actions/listMenu'
-import { setActiveNotebook } from '../../actions/activeNotebook'
 import NotebookList from './NotebookList'
 
 function mapStateToProps(state) {
   return {
+    notebooks: state.notebooks.notebooks,
     isFetching: state.notebooks.isFetching,
-    notebooks: state.notebooks.notebooks
+    isPanelShowing: state.notebooks.isPanelShowing
   }
 }
 
 const mapDispatchToProps = ({
   showAddNotebookModal,
   showDeleteNotebookModal,
-  showNoteList,
+  hideNotebookList,
   setActiveNotebook
 })
 

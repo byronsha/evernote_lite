@@ -1,5 +1,5 @@
 class Note < ActiveRecord::Base
-  validates :notebook_id, :title, presence: true
+  validates :notebook_id, presence: true
 
   belongs_to :notebook
   belongs_to :user

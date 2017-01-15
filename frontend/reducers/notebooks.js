@@ -1,15 +1,21 @@
 import {
+  // request actions
   REQUEST_NOTEBOOKS,
-  RECEIVE_NOTEBOOKS,
   CREATE_NOTEBOOK_INITIATED,
-  NOTEBOOK_CREATED,
   DELETE_NOTEBOOK_INITIATED,
-  NOTEBOOK_DELETED
+  // response actions
+  RECEIVE_NOTEBOOKS,
+  NOTEBOOK_CREATED,
+  NOTEBOOK_DELETED,
+  // ui actions
+  SHOW_NOTEBOOK_LIST,
+  HIDE_NOTEBOOK_LIST
 } from '../actions/notebooks'
 
 const initialState = {
   notebooks: [],
-  isFetching: false
+  isFetching: false,
+  isPanelShowing: false
 }
 
 function notebooks(state = initialState, action) {
@@ -45,6 +51,16 @@ function notebooks(state = initialState, action) {
           notebook.id !== action.notebookId
         ),
         isFetching: false
+      }
+    case SHOW_NOTEBOOK_LIST:
+      return {
+        ...state,
+        isPanelShowing: true
+      }
+    case HIDE_NOTEBOOK_LIST:
+      return {
+        ...state,
+        isPanelShowing: false
       }
     default:
       return state

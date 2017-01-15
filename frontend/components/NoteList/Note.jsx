@@ -16,7 +16,7 @@ function Note({ note, path, showDeleteNoteModal }) {
         browserHistory.push(`/home/${note.id}`)
       }}
     >
-      <span>{note.title}</span>
+      <span>{note.title || 'Untitled'}</span>
       <p><Timestamp time={note.created_at} /></p>
       <p>{note.content}</p>
       <i

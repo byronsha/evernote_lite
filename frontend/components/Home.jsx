@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import SidebarContainer from './Sidebar/SidebarContainer'
-import ListMenu from './ListMenu/ListMenu'
+import NoteListContainer from './NoteList/NoteListContainer'
+import NotebookListContainer from './NotebookList/NotebookListContainer'
 import DeleteNoteModal from './Modals/DeleteNoteModal'
 import AddNotebookModal from './Modals/AddNotebookModal'
 import DeleteNotebookModal from './Modals/DeleteNotebookModal'
@@ -11,7 +12,8 @@ class Home extends Component {
     return (
       <div>
         <SidebarContainer />
-        <ListMenu />
+        <NoteListContainer />
+        <NotebookListContainer />
 
         {this.props.children}
 

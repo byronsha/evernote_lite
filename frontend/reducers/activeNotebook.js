@@ -5,7 +5,7 @@ import {
 function activeNotebook(state = null, action) {
   switch (action.type) {
     case SET_ACTIVE_NOTEBOOK:
-      return action.notebookId
+      return action.notebook
     default:
       return state
   }

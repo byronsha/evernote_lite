@@ -3,16 +3,16 @@ import Timestamp from 'react-timestamp'
 
 function Notebook({
   notebook,
+  hideNotebookList,
+  setActiveNotebook,
   showDeleteNotebookModal,
-  showNoteList,
-  setActiveNotebook
 }) {
   return (
     <div
       className='notebook'
       onClick={() => {
-        setActiveNotebook(notebook.id)
-        showNoteList()
+        setActiveNotebook(notebook)
+        hideNotebookList()
     }}>
       <span>{notebook.title}</span>
       <p>{notebook.description}</p>

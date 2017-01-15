@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { createNote } from '../../actions/notes'
-import { showNoteList, showNotebookList } from '../../actions/listMenu'
+import { hideNotebookList, showNotebookList } from '../../actions/notebooks'
+import { setActiveNotebook } from '../../actions/activeNotebook'
 import { logoutUser } from '../../actions/session'
 import Sidebar from './Sidebar'
 
@@ -16,8 +17,9 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = ({
   createNote,
-  showNoteList,
   showNotebookList,
+  hideNotebookList,
+  setActiveNotebook,
   logoutUser
 })
 
