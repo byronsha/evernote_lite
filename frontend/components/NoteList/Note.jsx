@@ -16,9 +16,11 @@ function Note({ note, path, showDeleteNoteModal }) {
         browserHistory.push(`/home/${note.id}`)
       }}
     >
-      <span>{note.title || 'Untitled'}</span>
-      <p><Timestamp time={note.created_at} /></p>
-      <p>{note.content}</p>
+      <span className='note-title'>{note.title || 'Untitled'}</span>
+      <span className='note-timestamp'><Timestamp time={note.created_at} /></span>
+
+      {note.content && <p>{note.content}</p>}
+
       <i
         onClick={() => showDeleteNoteModal(note)}
         className='trash outline icon large'

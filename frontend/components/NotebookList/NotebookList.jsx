@@ -43,7 +43,7 @@ function NotebookList({
               setActiveNotebook(null)
               hideNotebookList()
             }}>
-            <span>All Notes</span>
+            <span className='notebook-title'>All Notes</span>
           </div>
           {notebooks.map(notebook =>
             <Notebook

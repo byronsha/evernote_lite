@@ -14,9 +14,11 @@ function Notebook({
         setActiveNotebook(notebook)
         hideNotebookList()
     }}>
-      <span>{notebook.title}</span>
-      <p>{notebook.description}</p>
-      <p><Timestamp time={notebook.created_at} /></p>
+      <span className='notebook-title'>{notebook.title}</span>
+      <span className='notebook-timestamp'><Timestamp time={notebook.created_at} /></span>
+      
+      {notebook.description && <p>{notebook.description}</p>}
+
       <i
         onClick={() => showDeleteNotebookModal(notebook)}
         className='trash outline icon large'
