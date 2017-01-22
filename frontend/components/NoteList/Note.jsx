@@ -17,7 +17,7 @@ function Note({ note, path, showDeleteNoteModal }) {
       }}
     >
       <span className='note-title'>{note.title || 'Untitled'}</span>
-      <span className='note-timestamp'><Timestamp time={note.created_at} /></span>
+      <span className='timestamp'><Timestamp time={note.created_at} /></span>
 
       {note.content && <p>{note.content}</p>}
 

@@ -14,7 +14,8 @@ function findNoteById(notes, noteId) {
 
 function mapStateToProps(state, ownProps) {
   return {
-    note: findNoteById(state.notes.notes, ownProps.params.noteId)
+    note: findNoteById(state.notes.notes, ownProps.params.noteId),
+    notebooks: state.notebooks.notebooks
   }
 }
 

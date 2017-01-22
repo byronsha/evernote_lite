@@ -17,3 +17,8 @@
 html, body {
   overflow: hidden;
 }
+.timestamp {
+  color: #999;
+  font-size: 12px;
+  font-style: italic;
+}

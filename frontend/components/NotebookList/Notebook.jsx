@@ -15,8 +15,8 @@ function Notebook({
         hideNotebookList()
     }}>
       <span className='notebook-title'>{notebook.title}</span>
-      <span className='notebook-timestamp'><Timestamp time={notebook.created_at} /></span>
-      
+      <span className='timestamp'><Timestamp time={notebook.created_at} /></span>
+
       {notebook.description && <p>{notebook.description}</p>}
 
       <i
