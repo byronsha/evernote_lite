@@ -20,7 +20,10 @@ function Notebook({
       {notebook.description && <p>{notebook.description}</p>}
 
       <i
-        onClick={() => showDeleteNotebookModal(notebook)}
+        onClick={(e) => {
+          e.stopPropagation()
+          showDeleteNotebookModal(notebook)
+        }}
         className='trash outline icon large'
       >
       </i>

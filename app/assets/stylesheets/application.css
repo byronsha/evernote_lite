@@ -22,3 +22,24 @@ html, body {
   font-size: 12px;
   font-style: italic;
 }
+.dimmer {
+  background: black;
+  opacity: 0.6;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+}
+.dimmer-animation-enter {
+  opacity: 0;
+  transition: all 0.5s;
+}
+.dimmer-animation-enter.dimmer-animation-enter-active {
+  opacity: 0.6;
+}
+.dimmer-animation-leave {
+  opacity: 0.6;
+  transition: all 0.5s;
+}
+.dimmer-animation-leave.dimmer-animation-leave-active {
+  opacity: 0;
+}

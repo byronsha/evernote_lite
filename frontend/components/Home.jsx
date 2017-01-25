@@ -6,6 +6,7 @@ import NotebookListContainer from './NotebookList/NotebookListContainer'
 import DeleteNoteModal from './Modals/DeleteNoteModal'
 import AddNotebookModal from './Modals/AddNotebookModal'
 import DeleteNotebookModal from './Modals/DeleteNotebookModal'
+import Dimmer from './Modals/Dimmer'
 
 class Home extends Component {
   render() {
@@ -20,6 +21,7 @@ class Home extends Component {
         <DeleteNoteModal />
         <AddNotebookModal />
         <DeleteNotebookModal />
+        <Dimmer />
       </div>
     )
   }

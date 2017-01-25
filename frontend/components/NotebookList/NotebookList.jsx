@@ -34,7 +34,7 @@ function NotebookList({
         <NotebookHeader
           notebooks={notebooks}
           showAddNotebookModal={showAddNotebookModal}
-          />
+        />
 
         <div className='notebook-list'>
           <div
@@ -42,7 +42,7 @@ function NotebookList({
             onClick={() => {
               setActiveNotebook(null)
               hideNotebookList()
-            }}>
+          }}>
             <span className='notebook-title'>All Notes</span>
           </div>
           {notebooks.map(notebook =>
@@ -52,7 +52,7 @@ function NotebookList({
               showDeleteNotebookModal={showDeleteNotebookModal}
               hideNotebookList={hideNotebookList}
               setActiveNotebook={setActiveNotebook}
-              />
+            />
           )}
         </div>
       </div>

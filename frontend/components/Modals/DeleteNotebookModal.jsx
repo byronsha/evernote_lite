@@ -3,6 +3,8 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { connect } from 'react-redux'
 import { deleteNotebook } from '../../actions/notebooks'
 import { hideDeleteNotebookModal } from '../../actions/deleteNotebookModal'
+import { setActiveNotebook } from '../../actions/activeNotebook'
+import { fetchNotes } from '../../actions/notes'
 
 class DeleteNotebookModal extends Component {
   render() {
@@ -18,14 +20,17 @@ class DeleteNotebookModal extends Component {
   }
 
   renderModal() {
-    const { isShowing, notebook, deleteNotebook, hideDeleteNotebookModal } = this.props
+    const {
+      isShowing, notebook, userId, deleteNotebook, hideDeleteNotebookModal,
+      setActiveNotebook, fetchNotes
+    } = this.props
 
     if (isShowing) {
       return (
         <div key='enter' className='ui small modal active'>
           <div className='header'>Delete notebook</div>
           <div className='content'>
-            <p>You are about to DELETE notebook <b>{notebook.title}</b></p>
+            <p>You are about to DELETE notebook <b>{notebook.title}</b> AND all of it's notes!</p>
           </div>
           <div className='actions'>
             <div
@@ -37,6 +42,8 @@ class DeleteNotebookModal extends Component {
             <div
               onClick={() => {
                 deleteNotebook(notebook.id)
+                setActiveNotebook(null)
+                fetchNotes(userId)
                 hideDeleteNotebookModal()
               }}
               className='ui blue button'
@@ -55,13 +62,16 @@ class DeleteNotebookModal extends Component {
 function mapStateToProps(state) {
   return {
     isShowing: state.deleteNotebookModal.isShowing,
-    notebook: state.deleteNotebookModal.notebook
+    notebook: state.deleteNotebookModal.notebook,
+    userId: state.session.user.id
   }
 }
 
 const mapDispatchToProps = ({
   deleteNotebook,
-  hideDeleteNotebookModal
+  hideDeleteNotebookModal,
+  setActiveNotebook,
+  fetchNotes
 })
 
 export default connect(
